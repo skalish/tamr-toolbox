@@ -1,7 +1,7 @@
 """Example script for generating Slack notifications based on Tamr jobs"""
-import tamr_toolbox as tbox
 from slack import WebClient
 
+import tamr_toolbox as tbox
 from tamr_toolbox.models.operation_state import OperationState
 
 # Make Tamr Client

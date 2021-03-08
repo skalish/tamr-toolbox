@@ -1,14 +1,14 @@
 """Tasks related to efficiently translating data not present in existing translation
 dictionaries"""
-from typing import Union, List, Any, Dict
-from tamr_toolbox.enrichment.dictionary import TranslationDictionary
-
-from tamr_toolbox.enrichment.dictionary import update, save
-from tamr_toolbox.enrichment.api_client import google
-
-import math
 import logging
+import math
 import os
+from typing import Any, Dict, List, Union
+
+from tamr_toolbox.enrichment.api_client import google
+from tamr_toolbox.enrichment.dictionary import save
+from tamr_toolbox.enrichment.dictionary import TranslationDictionary
+from tamr_toolbox.enrichment.dictionary import update
 
 # Building our documentation requires access to all dependencies, including optional ones
 # This environments variable is set automatically when `invoke docs` is used

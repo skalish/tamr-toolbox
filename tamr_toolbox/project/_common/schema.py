@@ -1,13 +1,12 @@
 """Tasks related to schema mapping as part of Tamr projects"""
-from tamr_unify_client.project.attribute_mapping.resource import (
-    AttributeMappingSpec,
-    AttributeMapping,
-)
-from tamr_unify_client.project.resource import Project
-from tamr_unify_client.dataset.resource import Dataset
-from typing import List
-import logging
 from json import JSONDecodeError
+import logging
+from typing import List
+
+from tamr_unify_client.dataset.resource import Dataset
+from tamr_unify_client.project.attribute_mapping.resource import AttributeMapping
+from tamr_unify_client.project.attribute_mapping.resource import AttributeMappingSpec
+from tamr_unify_client.project.resource import Project
 
 LOGGER = logging.getLogger(__name__)
 

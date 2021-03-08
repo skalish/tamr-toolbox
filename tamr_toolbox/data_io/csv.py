@@ -1,18 +1,17 @@
 """Tasks related to moving data in or out of Tamr using delimited files"""
-from typing import Optional, List, Union
-from functools import partial
-from pathlib import Path
-
 import csv
+from functools import partial
 import logging
 import os
-import requests
+from pathlib import Path
+from typing import List, Optional, Union
 
+import requests
 from tamr_unify_client.dataset.resource import Dataset
 from tamr_unify_client.project.resource import Project
 
-from tamr_toolbox.utils import operation
 from tamr_toolbox.data_io import common
+from tamr_toolbox.utils import operation
 
 LOGGER = logging.getLogger(__name__)
 

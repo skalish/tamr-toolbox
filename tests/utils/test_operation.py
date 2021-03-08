@@ -1,14 +1,12 @@
 """Tests for tasks related to Tamr operations (or jobs)"""
 from tamr_toolbox import utils
-from tamr_toolbox.utils.operation import (
-    from_resource_id,
-    get_latest,
-    get_details,
-    get_all,
-    get_active,
-)
-from tamr_toolbox.utils.testing import mock_api
 from tamr_toolbox.models.operation_state import OperationState
+from tamr_toolbox.utils.operation import from_resource_id
+from tamr_toolbox.utils.operation import get_active
+from tamr_toolbox.utils.operation import get_all
+from tamr_toolbox.utils.operation import get_details
+from tamr_toolbox.utils.operation import get_latest
+from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(

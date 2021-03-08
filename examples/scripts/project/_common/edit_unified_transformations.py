@@ -1,9 +1,9 @@
 """Example script for creation and editing of transformations scoped to the unified dataset
 in a Tamr project"""
-from typing import Dict, Any
+import argparse
+from typing import Any, Dict
 
 import tamr_toolbox as tbox
-import argparse
 
 
 def main(*, instance_connection_info: Dict[str, Any], project_id: str) -> None:

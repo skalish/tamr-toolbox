@@ -1,12 +1,11 @@
 """Tasks related to loading and using configuration files"""
-from typing import Union, Optional
+import logging
+import os
 from pathlib import Path
+import re
+from typing import Optional, Union
 
 import yaml
-import logging
-import re
-
-import os
 
 from tamr_toolbox.models.data_type import JsonDict
 

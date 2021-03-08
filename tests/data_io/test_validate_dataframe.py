@@ -1,6 +1,6 @@
 """Tests for tasks related to validating pandas.Dataframes"""
-import pytest
 import pandas as pd
+import pytest
 
 from tamr_toolbox.data_io import dataframe
 

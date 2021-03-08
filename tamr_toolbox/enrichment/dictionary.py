@@ -1,16 +1,18 @@
 """Tasks related to creating, updating, saving and moving translation dictionaries
 in and out of Tamr"""
-from typing import Dict, Set, List, Optional, Union
-from dataclasses import dataclass, asdict, field
+from dataclasses import asdict
+from dataclasses import dataclass
+from dataclasses import field
+import json
+import logging
+import os
+from pathlib import Path
+import tempfile
+from typing import Dict, List, Optional, Set, Union
+
+from requests.exceptions import HTTPError
 from tamr_unify_client.dataset.collection import DatasetCollection
 from tamr_unify_client.dataset.resource import Dataset
-from requests.exceptions import HTTPError
-from pathlib import Path
-
-import json
-import os
-import logging
-import tempfile
 
 LOGGER = logging.getLogger(__name__)
 

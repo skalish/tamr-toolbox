@@ -4,7 +4,6 @@ which implies exported data is written back to same database as ingested from.
 """
 import tamr_toolbox as tbox
 
-
 my_config = tbox.utils.config.from_yaml("examples/resources/conf/connect.config.yaml")
 my_connect = tbox.data_io.df_connect.client.from_config(my_config)
 

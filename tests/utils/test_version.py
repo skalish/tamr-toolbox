@@ -1,8 +1,11 @@
 """Tests for tasks related to the version of Tamr instances"""
-import pytest
-from typing import Union, Type
+from typing import Type, Union
 
-from tamr_toolbox.utils import version, config, client
+import pytest
+
+from tamr_toolbox.utils import client
+from tamr_toolbox.utils import config
+from tamr_toolbox.utils import version
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

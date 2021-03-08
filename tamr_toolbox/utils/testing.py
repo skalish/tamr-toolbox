@@ -1,21 +1,20 @@
 """Tasks related to testing code"""
-import logging
-import json
-import os
-import re
-from inspect import getfile
-
-from pathlib import Path
-from time import sleep
-from typing import Callable, List, Optional, Union, Dict
-from unittest import mock
 from functools import wraps
-from requests import Response, ConnectionError
+from inspect import getfile
+import json
+import logging
+import os
+from pathlib import Path
+import re
+from time import sleep
+from typing import Callable, Dict, List, Optional, Union
+from unittest import mock
 
+from requests import ConnectionError
+from requests import Response
 from tamr_unify_client.operation import Operation
 
 from tamr_toolbox import utils
-
 
 LOGGER = logging.getLogger(__name__)
 

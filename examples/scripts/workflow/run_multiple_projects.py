@@ -1,6 +1,6 @@
 """Example script for running a pipeline consisting of multiple Tamr projects"""
 import argparse
-from typing import List, Dict
+from typing import Dict, List
 
 from tamr_unify_client.operation import Operation
 

@@ -1,9 +1,8 @@
 """Tests for asks related to running jobs for Tamr Mastering projects"""
 import pytest
 
-from tamr_toolbox.project import mastering
 from tamr_toolbox import utils
-
+from tamr_toolbox.project import mastering
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

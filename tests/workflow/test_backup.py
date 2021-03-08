@@ -1,16 +1,16 @@
 """Tests for tasks related to backup and restore of Tamr instances"""
-import pytest
-from os import path
 import json
+from os import path
 from pathlib import Path
 import tempfile
-from typing import Tuple, List
+from typing import List, Tuple
 
-from tamr_toolbox.workflow import backup
+import pytest
+
 from tamr_toolbox import utils
 from tamr_toolbox.filesystem import bash
-
 from tamr_toolbox.utils.testing import mock_api
+from tamr_toolbox.workflow import backup
 from tests._common import get_toolbox_root_dir
 from tests.filesystem.test_bash import _make_old_files
 

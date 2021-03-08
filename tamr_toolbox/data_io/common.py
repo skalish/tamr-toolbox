@@ -1,6 +1,6 @@
 """Tasks common to moving data in and out of Tamr"""
-from typing import Optional, List, Any, Iterable, Callable
 import logging
+from typing import Any, Callable, Iterable, List, Optional
 
 from tamr_unify_client.dataset.resource import Dataset
 

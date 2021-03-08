@@ -2,6 +2,7 @@
 Requires installation of wkhtmltopdf, Mac install command: brew cask install wkhtmltopdf
 """
 from pathlib import Path
+
 import pdfkit
 
 

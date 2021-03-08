@@ -1,15 +1,17 @@
 """Tasks related to backup and restore of Tamr instances"""
+from datetime import datetime
+import json
 import logging
+import os
+from pathlib import Path
+from typing import Generator, List, Optional, Union
+
 import requests
 from tamr_unify_client import Client
+
+from tamr_toolbox import utils
 from tamr_toolbox.filesystem import bash
 from tamr_toolbox.models.data_type import JsonDict
-from tamr_toolbox import utils
-from typing import Generator, Union, Optional, List
-from datetime import datetime
-import os
-import json
-from pathlib import Path
 
 LOGGER = logging.getLogger(__name__)
 

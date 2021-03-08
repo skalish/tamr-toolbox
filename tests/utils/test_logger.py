@@ -1,10 +1,11 @@
 """tests for tasks related to logging within scripts"""
 
-import pytest
-import logging
 import datetime
-import tempfile
+import logging
 import os
+import tempfile
+
+import pytest
 
 import tamr_toolbox.utils.logger
 

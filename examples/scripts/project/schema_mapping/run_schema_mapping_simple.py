@@ -1,6 +1,6 @@
 """Example script for running a Tamr Schema Mapping project"""
 import argparse
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 from tamr_unify_client.operation import Operation
 

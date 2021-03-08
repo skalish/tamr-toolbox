@@ -1,10 +1,11 @@
 """Retrieve upstream projects from a specified project and update the entire chain."""
 
 import argparse
-from typing import List, Dict
+from typing import Dict, List
+
+from tamr_unify_client.operation import Operation
 
 import tamr_toolbox as tbox
-from tamr_unify_client.operation import Operation
 
 
 def main(*, instance_connection_info: Dict[str, str], project_id: str) -> List[Operation]:

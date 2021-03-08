@@ -1,10 +1,10 @@
 """An example script to translate data from disk and save results on disk"""
+import argparse
 from typing import List
 
-import tamr_toolbox as tbox
 import pandas as pd
 
-import argparse
+import tamr_toolbox as tbox
 
 
 def main(

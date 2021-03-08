@@ -14,7 +14,6 @@
 
 from recommonmark.transform import AutoStructify
 
-
 # -- Project information -----------------------------------------------------
 
 project = "Tamr Toolbox"

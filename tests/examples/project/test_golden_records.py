@@ -1,11 +1,8 @@
 """Tests for Tamr Golden Records project example scripts"""
+from examples.scripts.project.golden_records import run_golden_records_simple
+from examples.scripts.project.golden_records import run_golden_records_verbose
 from tamr_toolbox import utils
 from tamr_toolbox.utils.testing import mock_api
-
-from examples.scripts.project.golden_records import (
-    run_golden_records_simple,
-    run_golden_records_verbose,
-)
 from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(

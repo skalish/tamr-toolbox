@@ -1,7 +1,7 @@
 """Example script for running a Tamr Categorization project step-by-step including model training
 """
 import argparse
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 from tamr_unify_client.operation import Operation
 

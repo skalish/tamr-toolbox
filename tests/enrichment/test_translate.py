@@ -1,18 +1,17 @@
 """Tests for tasks related to efficiently translating data not present in existing translation
 dictionaries"""
-from typing import List, Dict, Optional
-from tamr_toolbox.enrichment.dictionary import TranslationDictionary
-
-from tamr_toolbox import utils
-from tamr_toolbox import enrichment
-
-from unittest.mock import MagicMock, patch
-from tests._common import get_toolbox_root_dir
-
-import pytest
 import tempfile
-from google.cloud.translate_v2 import Client as GoogleTranslateClient
+from typing import Dict, List, Optional
+from unittest.mock import MagicMock
+from unittest.mock import patch
 
+from google.cloud.translate_v2 import Client as GoogleTranslateClient
+import pytest
+
+from tamr_toolbox import enrichment
+from tamr_toolbox import utils
+from tamr_toolbox.enrichment.dictionary import TranslationDictionary
+from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(
     get_toolbox_root_dir() / "tests/mocking/resources/toolbox_test.yaml"

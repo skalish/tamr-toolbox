@@ -1,11 +1,8 @@
 """Tests for Tamr Schema Mapping project example scripts"""
+from examples.scripts.project.schema_mapping import run_schema_mapping_simple
+from examples.scripts.project.schema_mapping import run_schema_mapping_verbose
 from tamr_toolbox import utils
 from tamr_toolbox.utils.testing import mock_api
-
-from examples.scripts.project.schema_mapping import (
-    run_schema_mapping_simple,
-    run_schema_mapping_verbose,
-)
 from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(

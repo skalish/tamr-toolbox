@@ -1,9 +1,10 @@
 """Tasks related to Tamr operations (or jobs)"""
 import logging
-from typing import Union, List
+from typing import List, Union
 
 from tamr_unify_client import Client
 from tamr_unify_client.operation import Operation
+
 from tamr_toolbox.models.operation_state import OperationState
 
 LOGGER = logging.getLogger(__name__)

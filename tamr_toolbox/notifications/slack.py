@@ -1,14 +1,15 @@
 """Tasks related to creation of Slack notifications"""
 import logging
-import time
 import os
-from typing import Union, List, Optional
+import time
+from typing import List, Optional, Union
 
 from tamr_unify_client import Client
 from tamr_unify_client.operation import Operation
 
 from tamr_toolbox.models.operation_state import OperationState
-from tamr_toolbox.utils.operation import get_details, from_resource_id
+from tamr_toolbox.utils.operation import from_resource_id
+from tamr_toolbox.utils.operation import get_details
 
 LOGGER = logging.getLogger(__name__)
 

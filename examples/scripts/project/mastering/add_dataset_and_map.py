@@ -5,8 +5,9 @@ Can be used for any project type that has a schema mapping element
 (e.g. all of 'from tamr_toolbox.project.<mastering,categorization,schema_mapping> import schema'
 will work)
 """
-import tamr_toolbox as tbox
 import click
+
+import tamr_toolbox as tbox
 
 
 @click.command()

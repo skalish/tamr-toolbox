@@ -1,18 +1,20 @@
 """Tests for tasks related to testing code"""
-import json
 from base64 import b64encode
+import json
+from pathlib import Path
+from unittest.mock import MagicMock
+from unittest.mock import Mock
+from unittest.mock import patch
 
 import pytest
 import requests
-from requests import Response, Request
-
+from requests import Request
+from requests import Response
 from tamr_unify_client import Client
 from tamr_unify_client.operation import Operation
 
 from tamr_toolbox import utils
 from tamr_toolbox.models.operation_state import OperationState
-from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
 
 
 def test__build_response_log_path():

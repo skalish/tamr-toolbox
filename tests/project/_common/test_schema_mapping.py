@@ -1,8 +1,8 @@
 """Tests for tasks related to schema mapping as part of Tamr projects"""
 import pytest
 
-from tamr_toolbox.project.mastering import schema
 from tamr_toolbox import utils
+from tamr_toolbox.project.mastering import schema
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

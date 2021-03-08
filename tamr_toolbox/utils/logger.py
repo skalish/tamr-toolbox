@@ -1,8 +1,8 @@
 """Tasks related to logging within scripts"""
+import datetime
+import logging
 import os
 import sys
-import logging
-import datetime
 from typing import Optional
 
 

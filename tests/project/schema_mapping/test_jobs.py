@@ -1,12 +1,10 @@
 """Tests for tasks related to running jobs for Tamr Schema Mapping projects"""
 import pytest
 
-from tamr_toolbox.project import schema_mapping
 from tamr_toolbox import utils
-
+from tamr_toolbox.project import schema_mapping
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
-
 
 CONFIG = utils.config.from_yaml(
     get_toolbox_root_dir() / "tests/mocking/resources/toolbox_test.yaml"

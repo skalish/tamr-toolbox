@@ -1,7 +1,8 @@
 """Snippet for validating the contents of a pandas.Dataframe followed by ingestion into a
 Tamr dataset"""
-import tamr_toolbox as tbox
 import pandas as pd
+
+import tamr_toolbox as tbox
 
 # Read config, make Tamr Client
 tamr = tbox.utils.client.create(username="user", password="pw", host="localhost")

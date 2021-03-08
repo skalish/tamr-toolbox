@@ -1,13 +1,13 @@
 """Tasks related to connecting to a Tamr instance"""
+from base64 import b64decode
+from json import dumps
 import logging
 import re
-from base64 import b64decode
+from time import sleep
+from time import time as now
+from typing import Optional
 
 import requests
-from json import dumps
-from typing import Optional
-from time import sleep, time as now
-
 from requests import Response
 from tamr_unify_client import Client
 from tamr_unify_client.auth import UsernamePasswordAuth

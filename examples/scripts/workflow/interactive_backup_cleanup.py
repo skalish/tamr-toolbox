@@ -1,9 +1,10 @@
 """Example script for an interactive command prompt for Tamr backup management"""
-from typing import Union
 import argparse
-from pathlib import Path
-import os
 from datetime import datetime
+import os
+from pathlib import Path
+from typing import Union
+
 import pandas as pd
 
 import tamr_toolbox as tbox

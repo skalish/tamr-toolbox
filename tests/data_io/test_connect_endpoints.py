@@ -1,11 +1,11 @@
 """Tests for related to the Tamr auxiliary service DF-connect endpoints"""
+import os
+
+from tamr_toolbox import utils
 from tamr_toolbox.data_io.df_connect import client
 from tamr_toolbox.data_io.file_system_type import FileSystemType
-from tamr_toolbox import utils
-
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
-import os
 
 os.environ.setdefault("CONNECT_TOOLBOX_POSTGRES_JDBC", "/not/a/real/url")
 os.environ.setdefault("TAMR_TOOLBOX_HOST", "1.2.3.4.5")

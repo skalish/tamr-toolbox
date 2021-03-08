@@ -1,9 +1,8 @@
 """Tests for tasks related to moving data in or out of Tamr using pandas.Dataframes"""
 import pytest
 
-from tamr_toolbox.data_io import dataframe
 from tamr_toolbox import utils
-
+from tamr_toolbox.data_io import dataframe
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

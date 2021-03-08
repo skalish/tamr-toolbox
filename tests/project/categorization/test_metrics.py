@@ -1,12 +1,12 @@
 """Tests for tasks related to calculating metrics for Tamr Categorization projects"""
 import math
+
 import pytest
 
+from tamr_toolbox import utils
 import tamr_toolbox.data_io.dataframe as dataframe
 from tamr_toolbox.project import categorization
 from tamr_toolbox.project.categorization import metrics
-from tamr_toolbox import utils
-
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

@@ -1,7 +1,9 @@
 """Tests for tasks related to loading and using configuration files"""
 import os
 from pathlib import Path
+
 import pytest
+
 import tamr_toolbox.utils.config
 from tests._common import get_toolbox_root_dir
 

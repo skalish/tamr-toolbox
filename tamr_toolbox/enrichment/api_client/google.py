@@ -1,11 +1,11 @@
 """Tasks related to translating data with the google translation API"""
-from typing import List, Dict, Optional
-from tamr_toolbox.enrichment.dictionary import TranslationDictionary
-
-import logging
-import time
 import html
+import logging
 import os
+import time
+from typing import Dict, List, Optional
+
+from tamr_toolbox.enrichment.dictionary import TranslationDictionary
 
 # Building our documentation requires access to all dependencies, including optional ones
 # This environments variable is set automatically when `invoke doc_src` is used

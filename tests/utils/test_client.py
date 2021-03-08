@@ -1,11 +1,12 @@
 """Tests for tasks related to connecting to a Tamr instance"""
 import os
+
 import pytest
-from tamr_toolbox import utils
 from tamr_unify_client.auth import UsernamePasswordAuth
+
+from tamr_toolbox import utils
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
-
 
 # Provide dummy default for offline tests
 os.environ.setdefault(

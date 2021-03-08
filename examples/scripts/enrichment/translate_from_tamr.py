@@ -1,9 +1,8 @@
 """An example script to translate data from Tamr and save results in Tamr"""
-from typing import Dict, Any
+import argparse
+from typing import Any, Dict
 
 import tamr_toolbox as tbox
-
-import argparse
 
 
 def main(

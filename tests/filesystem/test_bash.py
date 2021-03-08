@@ -1,13 +1,16 @@
 """Tests for tasks related to managing unix-level operations like file and directory management"""
 
-import pytest
-import tempfile
-from tamr_toolbox.filesystem import bash
+from datetime import datetime
+from datetime import timedelta
 import os
 from os import path
 from pathlib import Path
-from datetime import datetime, timedelta
-from typing import Tuple, List
+import tempfile
+from typing import List, Tuple
+
+import pytest
+
+from tamr_toolbox.filesystem import bash
 
 TEMP_DIR = Path(tempfile.gettempdir())
 

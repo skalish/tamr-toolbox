@@ -1,18 +1,16 @@
 """Tests for tasks related to creating, updating, saving and moving translation dictionaries
 in and out of Tamr"""
-from tamr_toolbox.enrichment.dictionary import TranslationDictionary
-
-from tamr_toolbox import utils
-from tamr_toolbox import enrichment
-
-from tamr_toolbox.utils.testing import mock_api
-from tests._common import get_toolbox_root_dir
-
 from pathlib import Path
-from typing import Optional
 import tempfile
+from typing import Optional
+
 import pytest
 
+from tamr_toolbox import enrichment
+from tamr_toolbox import utils
+from tamr_toolbox.enrichment.dictionary import TranslationDictionary
+from tamr_toolbox.utils.testing import mock_api
+from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(
     get_toolbox_root_dir() / "tests/mocking/resources/toolbox_test.yaml"

@@ -1,6 +1,6 @@
 """Tasks related to running jobs for Tamr Mastering projects"""
-from typing import List
 import logging
+from typing import List
 
 from tamr_unify_client.mastering.project import MasteringProject
 from tamr_unify_client.operation import Operation

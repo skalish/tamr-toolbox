@@ -1,10 +1,10 @@
 """Tasks related to the version of Tamr instances"""
-from tamr_unify_client import Client
-from typing import Callable
-import json
 import inspect
-
+import json
 import logging
+from typing import Callable
+
+from tamr_unify_client import Client
 
 LOGGER = logging.getLogger(__name__)
 

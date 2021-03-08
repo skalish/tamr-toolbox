@@ -1,7 +1,6 @@
 """Snippet for interacting with Tamr operations (or jobs)"""
 import tamr_toolbox as tbox
 
-
 # Make Tamr Client
 tamr = tbox.utils.client.create(username="user", password="pw", host="localhost")
 

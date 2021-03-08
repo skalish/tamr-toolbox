@@ -1,18 +1,18 @@
 """Tests for tasks related to moving data in or out of Tamr using delimited files"""
-import pytest
-from typing import List, Optional
+from datetime import datetime
 import io
 import os
+from pathlib import Path
 import tempfile
+from typing import List, Optional
 
-from tamr_toolbox.data_io import csv
+import pandas as pd
+import pytest
+
 from tamr_toolbox import utils
-
+from tamr_toolbox.data_io import csv
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
-import pandas as pd
-from datetime import datetime
-from pathlib import Path
 
 CONFIG = utils.config.from_yaml(
     get_toolbox_root_dir() / "tests/mocking/resources/toolbox_test.yaml"

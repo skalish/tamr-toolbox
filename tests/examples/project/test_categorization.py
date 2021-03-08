@@ -1,11 +1,8 @@
 """Tests for Tamr Categorization project example scripts"""
+from examples.scripts.project.categorization import run_categorization_simple
+from examples.scripts.project.categorization import run_categorization_verbose
 from tamr_toolbox import utils
 from tamr_toolbox.utils.testing import mock_api
-
-from examples.scripts.project.categorization import (
-    run_categorization_verbose,
-    run_categorization_simple,
-)
 from tests._common import get_toolbox_root_dir
 
 CONFIG = utils.config.from_yaml(

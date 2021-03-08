@@ -1,6 +1,6 @@
 """Tasks related to running jobs for Tamr Schema Mapping projects"""
-from typing import List
 import logging
+from typing import List
 
 from tamr_unify_client.operation import Operation
 from tamr_unify_client.project.resource import Project

@@ -1,6 +1,6 @@
 """Functions related to projects upstream of a specified project"""
-from typing import List, Optional
 import logging
+from typing import List, Optional
 
 from tamr_unify_client.project.resource import Project
 

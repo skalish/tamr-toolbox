@@ -1,11 +1,9 @@
 """Tests for tasks related to running jobs for groups of Tamr projects"""
 import pytest
-
 from tamr_unify_client.project.resource import Project
 
-from tamr_toolbox import workflow
 from tamr_toolbox import utils
-
+from tamr_toolbox import workflow
 from tamr_toolbox.utils.testing import mock_api
 from tests._common import get_toolbox_root_dir
 

@@ -1,17 +1,16 @@
 """Tasks related to moving data in or out of Tamr using pandas.DataFrames"""
-import os
-import logging
-
-from typing import Optional, List
-from collections import OrderedDict, defaultdict
+from collections import defaultdict
+from collections import OrderedDict
 from functools import partial
+import logging
+import os
+from typing import List, Optional
 
 from tamr_unify_client.dataset.resource import Dataset
 
 from tamr_toolbox.data_io import common
 from tamr_toolbox.models.validation_check import ValidationCheck
 from tamr_toolbox.utils import operation
-
 
 LOGGER = logging.getLogger(__name__)
 

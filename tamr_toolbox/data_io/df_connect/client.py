@@ -1,14 +1,16 @@
 """Tasks related to interacting with the Tamr auxiliary service DF-connect"""
 from dataclasses import dataclass
+from enum import Enum
 import json
 import logging
-import requests
-from enum import Enum
-from tamr_toolbox.data_io.df_connect import jdbc_info
-from tamr_toolbox.models.data_type import JsonDict
-from tamr_toolbox.data_io.file_system_type import FileSystemType
-from tamr_unify_client.auth import UsernamePasswordAuth
 from typing import Dict, List, Union
+
+import requests
+from tamr_unify_client.auth import UsernamePasswordAuth
+
+from tamr_toolbox.data_io.df_connect import jdbc_info
+from tamr_toolbox.data_io.file_system_type import FileSystemType
+from tamr_toolbox.models.data_type import JsonDict
 
 LOGGER = logging.getLogger(__name__)
 

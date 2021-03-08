@@ -1,7 +1,8 @@
 """Tests for common tasks to the testing framework only"""
 
-from tests._common import get_toolbox_root_dir
 from pathlib import Path
+
+from tests._common import get_toolbox_root_dir
 
 
 def test__valid_toolbox_root_dir():

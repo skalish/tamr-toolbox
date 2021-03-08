@@ -1,16 +1,17 @@
 """Tests for tasks common to moving data in and out of Tamr """
-import pytest
-import pandas as pd
-from tamr_toolbox.data_io import common
-from tamr_toolbox import utils
-from tamr_toolbox.utils.testing import mock_api
-from tests._common import get_toolbox_root_dir
-from io import StringIO
 from functools import partial
+from io import StringIO
 import json
 from math import isnan
-from typing import Optional, List, Any
+from typing import Any, List, Optional
 
+import pandas as pd
+import pytest
+
+from tamr_toolbox import utils
+from tamr_toolbox.data_io import common
+from tamr_toolbox.utils.testing import mock_api
+from tests._common import get_toolbox_root_dir
 
 # Raw export of people_tiny_copy
 TEST_DATA = """

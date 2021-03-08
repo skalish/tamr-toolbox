@@ -1,17 +1,15 @@
 """Tasks related to running jobs for groups of Tamr projects"""
-from typing import List, Optional
 import logging
+from typing import List, Optional
 
 from tamr_unify_client.operation import Operation
 from tamr_unify_client.project.resource import Project
-from tamr_toolbox.models.project_type import ProjectType
 
-from tamr_toolbox.project import (
-    mastering,
-    categorization,
-    golden_records,
-    schema_mapping,
-)
+from tamr_toolbox.models.project_type import ProjectType
+from tamr_toolbox.project import categorization
+from tamr_toolbox.project import golden_records
+from tamr_toolbox.project import mastering
+from tamr_toolbox.project import schema_mapping
 
 LOGGER = logging.getLogger(__name__)
 

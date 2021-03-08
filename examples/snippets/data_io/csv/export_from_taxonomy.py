@@ -1,5 +1,6 @@
 """Snippet for exporting taxonomy of a Tamr Categorization project to a csv file"""
 import csv
+
 import tamr_toolbox as tbox
 
 # Create the Tamr client
