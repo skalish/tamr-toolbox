@@ -264,7 +264,7 @@ def from_taxonomy(
 
     try:
         f = open(export_file_path, "w", newline="", encoding="utf-8")
-    except (FileNotFoundError, IOError, PermissionError):
+    except IOError:
         cannot_open_error = f"File path {export_file_path} could not be opened for writing."
         LOGGER.error(cannot_open_error)
         raise IOError(cannot_open_error)
