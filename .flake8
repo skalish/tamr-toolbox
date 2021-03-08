@@ -5,5 +5,9 @@
 ignore = E203, E266, W503, F403, B950
 max-line-length = 99
 max-complexity = 18
-select = B,C,E,F,W,B9
+select = B,C,E,F,I,W,B9
 exclude = .venv*,*.egg-info
+
+# flake8-import-order plugin
+import-order-style = google
+application-import-names = examples, tamr_toolbox, tests

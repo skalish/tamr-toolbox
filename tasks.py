@@ -22,8 +22,7 @@ def lint(c):
 
 @task
 def format(c, fix=False, diff=False):
-    """ Uses black to report any formatting issues in your code
-
+    """ Uses black and isort to report any formatting issues in your code
     Args:
         fix: Flag to automatically fix formatting issues in your code
         diff: Flag to include a diff between your current code and the recommended code
@@ -36,9 +35,10 @@ def format(c, fix=False, diff=False):
         elif diff:
             arg = "--diff"
         else:
-            arg = "--check"
+            arg = "--check-only"  # black takes the argument --check, so slice to first 7 chars
 
-        c.run(f"black {arg} --line-length=99 .", echo=True, pty=True)
+        c.run(f"isort {arg} --line-length=99 --profile=google .", echo=True, pty=True)
+        c.run(f"black {arg[:7]} --line-length=99 .", echo=True, pty=True)
 
 
 @task

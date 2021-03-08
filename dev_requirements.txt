@@ -1,7 +1,9 @@
 black==19.10b0
 flake8==3.7.9
 flake8-bugbear==20.11.1
+flake8-import-order==0.18.1
 invoke==1.4.1
+isort==5.7.0
 mypy==0.761
 pytest==5.3.5
 Sphinx==2.1
