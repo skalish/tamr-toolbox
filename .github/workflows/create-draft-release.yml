@@ -25,44 +25,34 @@ jobs:
 
       - name: Install toolbox requirements
         run: python install.py
-#
-#      - name: Run tests
-#        run: invoke test
-#      - name: Run lint check
-#        run: invoke lint
-#      - name: Run format check
-#        run: invoke format
-#
-#      - name: Build docs
-#        run: invoke docs
-#
-#      - name: Install wkhtmltopdf
-#        run:  sudo apt-get update && sudo apt-get install openssl build-essential xorg libssl-dev && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && tar xvJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && sudo cp wkhtmltox/bin/wkhtmlto* /usr/bin/
-#      - name: Create pdf
-#        run: python ./doc_src/generate_pdf.py
 
-      - name: Get tag
-        id: all_tags
-        run: echo ::set-output name=tags::$(git rev-list --tags --max-count=1)
+      - name: Run tests
+        run: invoke test
+      - name: Run lint check
+        run: invoke lint
+      - name: Run format check
+        run: invoke format
 
-      - name: Get last tag
-        id: last_tag
-        run: echo ::set-output name=tag::$(git describe --tags ${{ steps.all_tags.outputs.tags }})
+      - name: Build docs
+        run: invoke docs
 
-      - name: Get last release branch
-        id: last_release
-        run: echo ::set-output name=branch::$(git branch -a --contains tags/${{ steps.last_tag.outputs.tag }})
-
-      - name: Get branch base commit
-        id: base_commit
-        run: echo ::set-output name=commit::$(git merge-base ${{ steps.last_release.outputs.branch }} remotes/origin/develop)
+      - name: Install wkhtmltopdf
+        run:  sudo apt-get update && sudo apt-get install openssl build-essential xorg libssl-dev && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && tar xvJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && sudo cp wkhtmltox/bin/wkhtmlto* /usr/bin/
+      - name: Create pdf
+        run: python ./doc_src/generate_pdf.py
 
       - name: Get commits since last release
         id: new_commits
-        run: echo ::set-output name=commits::$(git log ${{ steps.base_commit.outputs.commit }}..HEAD --format=" - %s;" --reverse)
+        run: |
+          all_tags=$(git rev-list --tags --max-count=1)
+          last_tag=$(git describe --tags $all_tags)
+          prev_release_branch=$(git branch -a --contains tags/$last_tag)
+          base_commit=$(git merge-base $prev_release_branch remotes/origin/develop)
+          echo ::set-output name=commits::$(git log $base_commit..HEAD --format=" - %s;" --reverse)
 
       - name: Construct release body
         id: body
+        # this ensures that new-lines (encoded as ";") are generated correctly
         run: |
           RELEASE="Documentation: https://datatamer.github.io/tamr-toolbox/${{ steps.get_version_short.outputs.version }}/ ;; Highlights:;  ${{ steps.new_commits.outputs.commits }}"
 
@@ -88,12 +78,12 @@ jobs:
           prerelease: false
           body: ${{ env.release }}
 
-#      - name: Upload pdf docs
-#        uses: actions/upload-release-asset@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          upload_url: ${{ steps.create_release.outputs.upload_url }}
-#          asset_path: ./docs/_draft_build/tamr-toolbox.pdf
-#          asset_name: tamr_toolbox_${{ steps.get_version.outputs.version }}.pdf
-#          asset_content_type: application/pdf
+      - name: Upload pdf docs
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./docs/_draft_build/tamr-toolbox.pdf
+          asset_name: tamr_toolbox_${{ steps.get_version.outputs.version }}.pdf
+          asset_content_type: application/pdf
