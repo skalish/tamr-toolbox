@@ -15,6 +15,7 @@ from tamr_unify_client.auth import UsernamePasswordAuth
 LOGGER = logging.getLogger(__name__)
 
 
+# THIS IS A DUMMY COMMIT
 def health_check(client: Client) -> bool:
     """
     Query the health check API and check if each service is healthy (returns True)
