@@ -12,6 +12,8 @@ jobs:
           python-version: 3.6
       - name: Checkout release branch
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Export version
         run: echo ::set-output name=version::$(cat version.txt)
@@ -23,33 +25,41 @@ jobs:
 
       - name: Install toolbox requirements
         run: python install.py
+#
+#      - name: Run tests
+#        run: invoke test
+#      - name: Run lint check
+#        run: invoke lint
+#      - name: Run format check
+#        run: invoke format
+#
+#      - name: Build docs
+#        run: invoke docs
+#
+#      - name: Install wkhtmltopdf
+#        run:  sudo apt-get update && sudo apt-get install openssl build-essential xorg libssl-dev && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && tar xvJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && sudo cp wkhtmltox/bin/wkhtmlto* /usr/bin/
+#      - name: Create pdf
+#        run: python ./doc_src/generate_pdf.py
 
-      - name: Run tests
-        run: invoke test
-      - name: Run lint check
-        run: invoke lint
-      - name: Run format check
-        run: invoke format
-
-      - name: Build docs
-        run: invoke docs
-
-      - name: Install wkhtmltopdf
-        run:  sudo apt-get update && sudo apt-get install openssl build-essential xorg libssl-dev && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && tar xvJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && sudo cp wkhtmltox/bin/wkhtmlto* /usr/bin/
-      - name: Create pdf
-        run: python ./doc_src/generate_pdf.py
+      - name: Get tag
+        id: all_tags
+        run: echo ::set-output name=tags::$(git rev-list --tags --max-count=1)
 
       - name: Get last tag
         id: last_tag
-        run: echo ::set-output name=tag::$(git describe --tags `git rev-list --tags --max-count=1`)
+        run: echo ::set-output name=tag::$(git describe --tags ${{ steps.all_tags.outputs.tags }})
 
       - name: Get last release branch
         id: last_release
-        run: echo ::set-output name=branch::$(git branch --contains tags/${{ steps.last_tag.outputs.tag }})
+        run: echo ::set-output name=branch::$(git branch -a --contains tags/${{ steps.last_tag.outputs.tag }})
+
+      - name: Get branch base commit
+        id: base_commit
+        run: echo ::set-output name=commit::$(git merge-base ${{ steps.last_release.outputs.branch }} remotes/origin/develop)
 
       - name: Get commits since last release
         id: new_commits
-        run: echo ::set-output name=commits::$(git log `git merge-base ${{ steps.last_release.outputs.branch }} develop`..HEAD --format="%s" --reverse)
+        run: echo ::set-output name=commits::$(git log ${{ steps.base_commit.outputs.commit }}..HEAD --format=" - %s;" --reverse)
 
       - name: Construct release body
         id: body
@@ -78,12 +88,12 @@ jobs:
           prerelease: false
           body: ${{ env.release }}
 
-      - name: Upload pdf docs
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./docs/_draft_build/tamr-toolbox.pdf
-          asset_name: tamr_toolbox_${{ steps.get_version.outputs.version }}.pdf
-          asset_content_type: application/pdf
+#      - name: Upload pdf docs
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: ./docs/_draft_build/tamr-toolbox.pdf
+#          asset_name: tamr_toolbox_${{ steps.get_version.outputs.version }}.pdf
+#          asset_content_type: application/pdf
